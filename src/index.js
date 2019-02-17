@@ -1,6 +1,12 @@
 import FormContainer from "./js/components/container/FormContainer.jsx";
 import React from "react";
-import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { render } from "react-dom";
+import store from "./js/store/index"
 
-const wrapper = document.getElementById("app");
-wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;
+render(
+    <Provider store={store}>
+        <FormContainer />
+    </Provider>,
+    document.getElementById("app")
+);
