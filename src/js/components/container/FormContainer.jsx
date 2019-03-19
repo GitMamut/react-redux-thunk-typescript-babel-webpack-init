@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Input from "../presentational/Input.jsx";
 import { connect } from "react-redux";
-import { addArticle } from "../../actions/index";
+import { addArticle } from "../../redux/actions";
 import uuidv1 from "uuid";
 
 class FormContainerConnected extends Component {
