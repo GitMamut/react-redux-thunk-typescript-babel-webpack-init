@@ -1,10 +1,10 @@
-import FormContainer from "./js/components/container/FormContainer.jsx";
+import FormContainer from "./js/components/container/FormContainer";
 import React from "react";
 import { Provider } from "react-redux";
-import { render } from "react-dom";
-import store from "./js/store/store"
+import ReactDOM from "react-dom";
+import store from "./js/redux/mainStore"
 
-render(
+ReactDOM.render(
     <Provider store={store}>
         <FormContainer />
     </Provider>,
