@@ -1,8 +1,8 @@
-import { ADD_ARTICLE, Article, addArticleAction } from "../constants/action-types";
+import { ADD_PARAGRAPH, Paragraph, addParagraphAction } from "../constants/action-types";
 
-export function addArticle(payload: Article): addArticleAction {
+export function addParagraph(payload: Paragraph): addParagraphAction {
     return {
-        type: ADD_ARTICLE,
+        type: ADD_PARAGRAPH,
         payload
     }
 };

@@ -1,11 +1,11 @@
-export const ADD_ARTICLE = "ADD_ARTICLE";
+export const ADD_PARAGRAPH = "ADD_PARAGRAPH";
 
-export type Article = {
-    seo_title: string;
+export type Paragraph = {
+    paragraph: string;
     id: string;
 };
 
-export type addArticleAction = {
-    type: typeof ADD_ARTICLE;
-    payload: Article;
+export type addParagraphAction = {
+    type: typeof ADD_PARAGRAPH;
+    payload: Paragraph;
 }

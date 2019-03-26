@@ -11,7 +11,7 @@ type Props = {
 
 const Input = (props: Props) => (
   <div className="form-group">
-    <label htmlFor={props.label}>{props.text}</label>
+    <label htmlFor={props.label}>{props.text}:{" "}</label>
     <input
       type={props.type}
       className="form-control"

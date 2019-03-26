@@ -1,22 +1,22 @@
 import {
-    ADD_ARTICLE, addArticleAction, Article
+    ADD_PARAGRAPH, addParagraphAction, Paragraph
 } from "../constants/action-types";
 
 export type AppState = {
-    articles: Article[];
+    paragraphs: Paragraph[];
 }
 
 const initialState = {
-    articles: []
+    paragraphs: []
 };
 
-function rootReducer(state: AppState = initialState, action: addArticleAction) {
+function rootReducer(state: AppState = initialState, action: addParagraphAction) {
     switch (action.type) {
-        case ADD_ARTICLE:
+        case ADD_PARAGRAPH:
             return {
                 ...state,
-                articles: [
-                    ...state.articles,
+                paragraphs: [
+                    ...state.paragraphs,
                     action.payload
                 ]
             };

@@ -2,63 +2,66 @@ import React, { Dispatch } from "react";
 import Input from "../presentational/Input";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
-import { Article, addArticleAction } from "../../constants/action-types";
+import { Paragraph, addParagraphAction } from "../../constants/action-types";
 import { AppState } from "../../redux/rootReducer";
-import { addArticle } from "../../redux/actions";
+import { addParagraph } from "../../redux/actions";
 
-type DispatchProps = { addArticle: (article: Article) => void };
-type OwnProps = { articles: Article[] };
+type DispatchProps = { addParagraph: (paragraph: Paragraph) => void };
+type OwnProps = { paragraphs: Paragraph[] };
 type Props = OwnProps & DispatchProps;
-type State = { seo_title: string };
+type State = { paragraph: string };
 
 class FormContainerConnected extends React.Component<Props, State> {
     public constructor(props: Props) {
         super(props);
 
         this.state = {
-            seo_title: ""
+            paragraph: ""
         };
-
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     private handleChange = (event: React.FormEvent<HTMLInputElement>) => {
-        this.setState({ seo_title: event.currentTarget.value });
+        this.setState({ paragraph: event.currentTarget.value });
     }
 
     private handleSubmit = (event: React.FormEvent): void => {
         event.preventDefault();
-        const { seo_title } = this.state;
-        this.props.addArticle({ seo_title, id: uuidv1() });
-        this.setState({ seo_title: "" });
+        const { paragraph } = this.state;
+        this.props.addParagraph({ paragraph, id: uuidv1() });
+        this.setState({ paragraph: "" });
     }
 
     public render() {
-        const { seo_title } = this.state;
+        const { paragraph } = this.state;
         return (
-            <form id="article-form" onSubmit={this.handleSubmit}>
-                <Input
-                    text="SEO titleeee"
-                    label="seo_title"
-                    type="text"
-                    id="seo_title"
-                    value={seo_title}
-                    handleChange={this.handleChange}
-                />
-                <button type="submit">Add</button>
-                {this.props.articles.map(art => <p key={art.id}>{art.seo_title}</p>)}
+            <form id="paragraph-form" onSubmit={this.handleSubmit}>
+                <h1 style={{margin: 0}}>react redux typescript babel webpack</h1>
+                <h3 style={{marginTop: 0}}>sample boilerplate initial code project - <i><a href="http://tech.mintfrost.com">mintfrost.com</a></i></h3>
+                
+                <div style={{ display: "flex" }}>
+                    <Input
+                        text="Paragraph"
+                        label="paragraph"
+                        type="text"
+                        id="paragraph"
+                        value={paragraph}
+                        handleChange={this.handleChange}
+                    />
+                    <button type="submit">Add</button>
+                </div>
+                {this.props.paragraphs.map(art => <p key={art.id}>{art.paragraph}</p>)}
             </form>
         );
     }
 }
 
 const mapStateToProps = (state: AppState) => {
-    return { articles: state.articles };
+    return { paragraphs: state.paragraphs };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<addArticleAction>) => {
+const mapDispatchToProps = (dispatch: Dispatch<addParagraphAction>) => {
     return {
-        addArticle: (article: Article) => dispatch(addArticle(article))
+        addParagraph: (paragraph: Paragraph) => dispatch(addParagraph(paragraph))
     };
 }
 
