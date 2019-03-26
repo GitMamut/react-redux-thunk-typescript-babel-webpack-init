@@ -9,3 +9,5 @@ export type addParagraphAction = {
     type: typeof ADD_PARAGRAPH;
     payload: Paragraph;
 }
+
+export type Actions = addParagraphAction;
